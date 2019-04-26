@@ -4,5 +4,8 @@
 4.nginx1.15+
 5ysql5.6
 6.php7.2
-小视频服务
+easyswoole 
+实现高性能api接口
+mysql连接池
+多进程redis+esayswoole中生产者消费者模式
 #静态页面使用nginx,动态由nginx转发至swoole服务
