@@ -1,0 +1,4 @@
+[2019-04-23 15:47:00][Exception][file:/www/wwwroot/easyswoole/App/HttpController/Admin/Hello.php][line:15]syntax error, unexpected '{'
+[2019-04-23 16:12:29][Exception][file:/www/wwwroot/easyswoole/App/HttpController/Admin/Hello.php][line:20]syntax error, unexpected '$action' (T_VARIABLE), expecting ',' or ')'
+[2019-04-23 16:56:51][Exception][file:/www/wwwroot/easyswoole/App/HttpController/Admin/Hello.php][line:42]Class 'App\HttpController\Admin\B' not found
+[2019-04-23 16:56:57][Exception][file:/www/wwwroot/easyswoole/App/HttpController/Admin/Hello.php][line:42]Class 'App\HttpController\Admin\B' not found

@@ -1,0 +1,370 @@
+[2019-04-23 11:11:49 #18093.2]	INFO	Server is shutdown now
+[2019-04-23 12:06:26 $4298.0]	INFO	Server is reloading task workers now
+[2019-04-23 12:06:43 #4297.2]	INFO	Server is shutdown now
+[2019-04-23 12:08:15 $4377.0]	INFO	Server is reloading task workers now
+[2019-04-23 12:08:33 #4376.2]	INFO	Server is shutdown now
+[2019-04-23 12:11:47 #4411.2]	INFO	Server is shutdown now
+[2019-04-23 15:20:30 #4445.2]	INFO	Server is shutdown now
+object(EasySwoole\Http\Request)#58 (13) {
+  ["request":"EasySwoole\Http\Request":private]=>
+  object(Swoole\Http\Request)#56 (10) {
+    ["fd"]=>
+    int(1)
+    ["streamId"]=>
+    int(0)
+    ["header"]=>
+    array(7) {
+      ["host"]=>
+      string(17) "182.61.41.38:9501"
+      ["connection"]=>
+      string(10) "keep-alive"
+      ["upgrade-insecure-requests"]=>
+      string(1) "1"
+      ["user-agent"]=>
+      string(114) "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36"
+      ["accept"]=>
+      string(118) "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3"
+      ["accept-encoding"]=>
+      string(13) "gzip, deflate"
+      ["accept-language"]=>
+      string(14) "zh-CN,zh;q=0.9"
+    }
+    ["server"]=>
+    array(10) {
+      ["request_method"]=>
+      string(3) "GET"
+      ["request_uri"]=>
+      string(12) "/hello/index"
+      ["path_info"]=>
+      string(12) "/hello/index"
+      ["request_time"]=>
+      int(1556004044)
+      ["request_time_float"]=>
+      float(1556004045.0274)
+      ["server_port"]=>
+      int(9501)
+      ["remote_port"]=>
+      int(3014)
+      ["remote_addr"]=>
+      string(12) "111.20.59.12"
+      ["master_time"]=>
+      int(1556004044)
+      ["server_protocol"]=>
+      string(8) "HTTP/1.1"
+    }
+    ["request"]=>
+    NULL
+    ["cookie"]=>
+    array(18) {
+      ["order"]=>
+      string(7) "id desc"
+      ["force"]=>
+      string(1) "0"
+      ["uploadSize"]=>
+      string(10) "1073741824"
+      ["rank"]=>
+      string(1) "a"
+      ["memSize"]=>
+      string(4) "3950"
+      ["copyFileName"]=>
+      string(4) "null"
+      ["backup_path"]=>
+      string(11) "/www/backup"
+      ["sites_path"]=>
+      string(12) "/www/wwwroot"
+      ["cutFileName"]=>
+      string(4) "null"
+      ["Hm_lvt_b393d153aeb26b46e9431fabaf0f6190"]=>
+      string(43) "1555732496,1555744498,1555810253,1555898870"
+      ["pnull"]=>
+      string(1) "1"
+      ["p0"]=>
+      string(1) "1"
+      ["softType"]=>
+      string(1) "5"
+      ["p5"]=>
+      string(1) "1"
+      ["serverType"]=>
+      string(24) "{{session['webserver']}}"
+      ["Path"]=>
+      string(42) "/www/wwwroot/easyswoole/App/HttpController"
+      ["BT_PANEL_6"]=>
+      string(64) "cd461762-10ca-473c-bf36-04e8d7727225.NaBs8yJdxoASP2JCoEcDLBXND80"
+      ["request_token"]=>
+      string(32) "ef35a96633c098f5a7659eebbf4c950a"
+    }
+    ["get"]=>
+    NULL
+    ["files"]=>
+    NULL
+    ["post"]=>
+    NULL
+    ["tmpfiles"]=>
+    NULL
+  }
+  ["attributes":"EasySwoole\Http\Message\ServerRequest":private]=>
+  array(0) {
+  }
+  ["cookieParams":"EasySwoole\Http\Message\ServerRequest":private]=>
+  array(18) {
+    ["order"]=>
+    string(7) "id desc"
+    ["force"]=>
+    string(1) "0"
+    ["uploadSize"]=>
+    string(10) "1073741824"
+    ["rank"]=>
+    string(1) "a"
+    ["memSize"]=>
+    string(4) "3950"
+    ["copyFileName"]=>
+    string(4) "null"
+    ["backup_path"]=>
+    string(11) "/www/backup"
+    ["sites_path"]=>
+    string(12) "/www/wwwroot"
+    ["cutFileName"]=>
+    string(4) "null"
+    ["Hm_lvt_b393d153aeb26b46e9431fabaf0f6190"]=>
+    string(43) "1555732496,1555744498,1555810253,1555898870"
+    ["pnull"]=>
+    string(1) "1"
+    ["p0"]=>
+    string(1) "1"
+    ["softType"]=>
+    string(1) "5"
+    ["p5"]=>
+    string(1) "1"
+    ["serverType"]=>
+    string(24) "{{session['webserver']}}"
+    ["Path"]=>
+    string(42) "/www/wwwroot/easyswoole/App/HttpController"
+    ["BT_PANEL_6"]=>
+    string(64) "cd461762-10ca-473c-bf36-04e8d7727225.NaBs8yJdxoASP2JCoEcDLBXND80"
+    ["request_token"]=>
+    string(32) "ef35a96633c098f5a7659eebbf4c950a"
+  }
+  ["parsedBody":"EasySwoole\Http\Message\ServerRequest":private]=>
+  array(0) {
+  }
+  ["queryParams":"EasySwoole\Http\Message\ServerRequest":private]=>
+  array(0) {
+  }
+  ["serverParams":"EasySwoole\Http\Message\ServerRequest":private]=>
+  array(10) {
+    ["request_method"]=>
+    string(3) "GET"
+    ["request_uri"]=>
+    string(12) "/hello/index"
+    ["path_info"]=>
+    string(12) "/hello/index"
+    ["request_time"]=>
+    int(1556004044)
+    ["request_time_float"]=>
+    float(1556004045.0274)
+    ["server_port"]=>
+    int(9501)
+    ["remote_port"]=>
+    int(3014)
+    ["remote_addr"]=>
+    string(12) "111.20.59.12"
+    ["master_time"]=>
+    int(1556004044)
+    ["server_protocol"]=>
+    string(8) "HTTP/1.1"
+  }
+  ["uploadedFiles":"EasySwoole\Http\Message\ServerRequest":private]=>
+  array(0) {
+  }
+  ["uri":"EasySwoole\Http\Message\Request":private]=>
+  object(EasySwoole\Http\Message\Uri)#60 (7) {
+    ["host":"EasySwoole\Http\Message\Uri":private]=>
+    string(12) "182.61.41.38"
+    ["userInfo":"EasySwoole\Http\Message\Uri":private]=>
+    NULL
+    ["port":"EasySwoole\Http\Message\Uri":private]=>
+    string(4) "9501"
+    ["path":"EasySwoole\Http\Message\Uri":private]=>
+    string(12) "/hello/index"
+    ["query":"EasySwoole\Http\Message\Uri":private]=>
+    string(0) ""
+    ["fragment":"EasySwoole\Http\Message\Uri":private]=>
+    NULL
+    ["scheme":"EasySwoole\Http\Message\Uri":private]=>
+    string(4) "http"
+  }
+  ["method":"EasySwoole\Http\Message\Request":private]=>
+  string(3) "GET"
+  ["target":"EasySwoole\Http\Message\Request":private]=>
+  NULL
+  ["protocolVersion":"EasySwoole\Http\Message\Message":private]=>
+  string(3) "1.1"
+  ["headers":"EasySwoole\Http\Message\Message":private]=>
+  array(7) {
+    ["host"]=>
+    array(1) {
+      [0]=>
+      string(17) "182.61.41.38:9501"
+    }
+    ["connection"]=>
+    array(1) {
+      [0]=>
+      string(10) "keep-alive"
+    }
+    ["upgrade-insecure-requests"]=>
+    array(1) {
+      [0]=>
+      string(1) "1"
+    }
+    ["user-agent"]=>
+    array(1) {
+      [0]=>
+      string(114) "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36"
+    }
+    ["accept"]=>
+    array(1) {
+      [0]=>
+      string(118) "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3"
+    }
+    ["accept-encoding"]=>
+    array(1) {
+      [0]=>
+      string(13) "gzip, deflate"
+    }
+    ["accept-language"]=>
+    array(1) {
+      [0]=>
+      string(14) "zh-CN,zh;q=0.9"
+    }
+  }
+  ["body":"EasySwoole\Http\Message\Message":private]=>
+  object(EasySwoole\Http\Message\Stream)#59 (6) {
+    ["stream":"EasySwoole\Spl\SplStream":private]=>
+    resource(72) of type (stream)
+    ["seekable":"EasySwoole\Spl\SplStream":private]=>
+    bool(true)
+    ["readable":"EasySwoole\Spl\SplStream":private]=>
+    bool(true)
+    ["writable":"EasySwoole\Spl\SplStream":private]=>
+    bool(true)
+    ["readList":"EasySwoole\Spl\SplStream":private]=>
+    array(16) {
+      ["r"]=>
+      bool(true)
+      ["w+"]=>
+      bool(true)
+      ["r+"]=>
+      bool(true)
+      ["x+"]=>
+      bool(true)
+      ["c+"]=>
+      bool(true)
+      ["rb"]=>
+      bool(true)
+      ["w+b"]=>
+      bool(true)
+      ["r+b"]=>
+      bool(true)
+      ["x+b"]=>
+      bool(true)
+      ["c+b"]=>
+      bool(true)
+      ["rt"]=>
+      bool(true)
+      ["w+t"]=>
+      bool(true)
+      ["r+t"]=>
+      bool(true)
+      ["x+t"]=>
+      bool(true)
+      ["c+t"]=>
+      bool(true)
+      ["a+"]=>
+      bool(true)
+    }
+    ["writeList":"EasySwoole\Spl\SplStream":private]=>
+    array(17) {
+      ["w"]=>
+      bool(true)
+      ["w+"]=>
+      bool(true)
+      ["rw"]=>
+      bool(true)
+      ["r+"]=>
+      bool(true)
+      ["x+"]=>
+      bool(true)
+      ["c+"]=>
+      bool(true)
+      ["wb"]=>
+      bool(true)
+      ["w+b"]=>
+      bool(true)
+      ["r+b"]=>
+      bool(true)
+      ["x+b"]=>
+      bool(true)
+      ["c+b"]=>
+      bool(true)
+      ["w+t"]=>
+      bool(true)
+      ["r+t"]=>
+      bool(true)
+      ["x+t"]=>
+      bool(true)
+      ["c+t"]=>
+      bool(true)
+      ["a"]=>
+      bool(true)
+      ["a+"]=>
+      bool(true)
+    }
+  }
+}
+object(EasySwoole\Http\Response)#61 (10) {
+  ["response":"EasySwoole\Http\Response":private]=>
+  object(Swoole\Http\Response)#57 (4) {
+    ["fd"]=>
+    int(1)
+    ["header"]=>
+    NULL
+    ["cookie"]=>
+    NULL
+    ["trailer"]=>
+    NULL
+  }
+  ["sendFile":"EasySwoole\Http\Response":private]=>
+  NULL
+  ["isEndResponse":"EasySwoole\Http\Response":private]=>
+  int(0)
+  ["isChunk":"EasySwoole\Http\Response":private]=>
+  bool(false)
+  ["statusCode":"EasySwoole\Http\Message\Response":private]=>
+  int(200)
+  ["reasonPhrase":"EasySwoole\Http\Message\Response":private]=>
+  string(2) "OK"
+  ["cookies":"EasySwoole\Http\Message\Response":private]=>
+  array(0) {
+  }
+  ["protocolVersion":"EasySwoole\Http\Message\Message":private]=>
+  string(3) "1.1"
+  ["headers":"EasySwoole\Http\Message\Message":private]=>
+  array(1) {
+    ["Server"]=>
+    array(1) {
+      [0]=>
+      string(10) "EasySwoole"
+    }
+  }
+  ["body":"EasySwoole\Http\Message\Message":private]=>
+  NULL
+}
+[2019-04-23 15:20:58 #5081.2]	INFO	Server is shutdown now
+[2019-04-23 15:28:57 #5129.2]	INFO	Server is shutdown now
+[2019-04-23 15:48:19 $5290.0]	WARNING	swManager_check_exit_status: worker#2[pid=5303] abnormal exit, status=255, signal=0
+[2019-04-23 19:06:10 $6278.0]	WARNING	swManager_check_exit_status: worker#2[pid=6291] abnormal exit, status=255, signal=0
+[2019-04-23 19:06:29 $6278.0]	WARNING	swManager_check_exit_status: worker#2[pid=6300] abnormal exit, status=255, signal=0
+[2019-04-23 19:08:35 $6317.0]	WARNING	swManager_check_exit_status: worker#2[pid=6330] abnormal exit, status=255, signal=0
+[2019-04-23 19:16:59 $6400.0]	WARNING	swManager_check_exit_status: worker#3[pid=6414] abnormal exit, status=255, signal=0
+[2019-04-23 19:17:20 $6400.0]	WARNING	swManager_check_exit_status: worker#2[pid=6413] abnormal exit, status=255, signal=0
+[2019-04-23 19:18:43 $6433.0]	WARNING	swManager_check_exit_status: worker#2[pid=6446] abnormal exit, status=255, signal=0
