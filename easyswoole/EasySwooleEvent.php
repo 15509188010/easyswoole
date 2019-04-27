@@ -67,6 +67,7 @@ class EasySwooleEvent implements Event
         for ($i = 0; $i < $allNum; $i++) {
             ServerManager::getInstance()->getSwooleServer()->addProcess((new ConsumerTest("consumer_{$i}"))->getProcess());
         }
+
     }
 
     public static function onRequest(Request $request, Response $response): bool
