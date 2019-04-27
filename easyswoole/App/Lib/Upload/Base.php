@@ -14,14 +14,27 @@ class Base
      */
     public $type = "";
 
-    public function __construct($request)
+    /**
+     * [__construct description]
+     * @param [type] $request [description]
+     * @param [type] $type    [description]
+     */
+    public function __construct($request, $type = null)
     {
         $this->request = $request;
-        $files         = $this->request->getSwooleRequest()->files;
-        $types         = array_keys($files);
-        $this->type    = $types[0];
+        if (empty($type)) {
+            $files      = $this->request->getSwooleRequest()->files;
+            $types      = array_keys($files);
+            $this->type = $types[0];
+        } else {
+            $this->type = $type;
+        }
     }
 
+    /**
+     * [upload description]
+     * @return [type] [description]
+     */
     public function upload()
     {
         if ($this->type != $this->fileType) {
@@ -41,6 +54,11 @@ class Base
         return false;
     }
 
+    /**
+     * [getFile description]
+     * @param  [type] $fileName [description]
+     * @return [type]           [description]
+     */
     public function getFile($fileName)
     {
         $pathinfo  = pathinfo($fileName);
@@ -74,6 +92,10 @@ class Base
         return true;
     }
 
+    /**
+     * [checkSize description]
+     * @return [type] [description]
+     */
     public function checkSize()
     {
         if (empty($this->size)) {
