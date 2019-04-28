@@ -1,5 +1,5 @@
 <?php
-namespace App\Model;
+namespace App\Lib\Mysql;
 
 use App\Pool\MysqlObject;
 use App\Pool\MysqlPool;

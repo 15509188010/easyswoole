@@ -40,13 +40,13 @@ return [
     'MYSQL'         => [
         'host'          => '127.0.0.1',
         'port'          => '3306',
-        'user'          => 'live',
+        'user'          => 'video',
         'timeout'       => '5',
         'charset'       => 'utf8mb4',
         'password'      => 'csm1143669542@',
-        'database'      => 'live',
+        'database'      => 'video',
         'POOL_MAX_NUM'  => '20',
         'POOL_TIME_OUT' => '0.1',
-        'prefix'        => 'live_',
+        'prefix'        => 'v_',
     ],
 ];
