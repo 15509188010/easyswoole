@@ -10,6 +10,7 @@
     <title>KoolTube</title>
     <!-- VUE2.6 -->
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
     <!-- Custom CSS -->
@@ -73,7 +74,7 @@
                             <div class="dropdown-menu">
                                 <div class="dropdown-inner">
                                     <ul class="list-unstyled">
-                                        <li v-for="(item,index) of video" :key="index">
+                                        <li v-for="(item,index) in video" :key="index">
                                             <a href="archive.html">{{item.title}}</a>
                                         </li>
                                     </ul>
