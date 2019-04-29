@@ -21,8 +21,14 @@ var menu = new Vue({
         //         })
         // },
         getCategory: function() {
-            axios.post('http://182.61.41.38:8000/api/menu/category', {
-
+            axios.post('http://182.61.41.38:8000/api/menu/category', getData({
+                    id: '2',
+                    appKey: kAppKey,
+                    sign: getSign({ id: '2' }, kAppKey, kAppSecret),
+                }), {
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    }
                 })
                 .then(function(response) {
                     menu.category = response.data.result;
@@ -32,4 +38,4 @@ var menu = new Vue({
                 })
         },
     },
-})
+});

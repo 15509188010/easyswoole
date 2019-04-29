@@ -12,3 +12,14 @@ CREATE TABLE `v_category`(
 	`status` tinyint(1) unsigned NOT NULL DEFAULT 0 COMMENT '状态值 0上线 1下线',
 	PRIMARY KEY (`id`)
 )ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT charset=utf8;
+
+
+--应用表
+CREATE TABLE `v_appkey`(
+	`id` int(10) unsigned NOT NULL auto_increment,
+	`appkey` VARCHAR(50) unique NOT NULL DEFAULT '' COMMENT '应用id',
+	`appsecret` VARCHAR(50) unique NOT NULL DEFAULT '' COMMENT '应用秘钥',
+	`ctime` VARCHAR(20) NOT NULL DEFAULT '',
+	`uid` int(10) NOT NULL DEFAULT 0 COMMENT '用户id',
+	PRIMARY KEY (`id`)
+)ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT charset=utf8;

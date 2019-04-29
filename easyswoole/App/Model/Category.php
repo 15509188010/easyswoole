@@ -13,22 +13,19 @@ class Category extends Model
      * 获取所有一级分类
      * @return [type] [description]
      */
-    public function getAllCategory($field = false, $pid = 0)
+    public function getAllCategory($field = false, $item = false, $pid = 0)
     {
-        if ($field === false) {
-            $res = $this
-                ->where('pid', $pid)
-                ->order('weigh desc')
-                ->where('status', 0)
-                ->select();
-        } else {
-            $res = $this
-                ->where('pid', $pid)
-                ->order('weigh desc')
-                ->where('status', 0)
-                ->field($field)
-                ->select();
+        $model = $this->order('weigh desc')->where('pid', $pid)->order('weigh DESC');
+        if ($field !== false) {
+            $model = $model->field($field);
         }
+
+        if ($item !== false) {
+            $model = $model->where('item', $item);
+        }
+
+        $res = $model->select();
+
         return $res;
     }
 }
