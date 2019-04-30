@@ -35,6 +35,7 @@ CREATE TABLE `v_video`(
 	`click` int(10) NOT  NULL DEFAULT 1 COMMENT '视频点击数',
 	`zan` int(10) NOT  NULL DEFAULT 1 COMMENT '视频点赞数',
 	`fav` int(10) NOT  NULL DEFAULT 1 COMMENT '收藏数量',
+	`content` TEXT(255) NOT NULL DEFAULT '' COMMENT '视频介绍',
 	`ctime` VARCHAR(20) NOT NULL DEFAULT '',
 	`weigh` int(3) unsigned NOT NULL DEFAULT 0 COMMENT '权重0-100 值越大越靠前',
 	`status` tinyint(1) unsigned NOT NULL DEFAULT 0 COMMENT '状态值 0上线 1下线',
