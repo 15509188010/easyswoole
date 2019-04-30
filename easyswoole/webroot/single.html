@@ -28,6 +28,9 @@
     <script src="js/jquery-2.1.1.js"></script>
     <!-- Core JavaScript Files -->
     <script src="js/bootstrap.min.js"></script>
+    <!-- aliyun -->
+    <link rel="stylesheet" href="https://g.alicdn.com/de/prismplayer/2.8.1/skins/default/aliplayer-min.css" />
+    <script type="text/javascript" charset="utf-8" src="https://g.alicdn.com/de/prismplayer/2.8.1/aliplayer-min.js"></script>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -123,7 +126,7 @@
                     <div class="zoom-container">
                         <div class="zoom-caption">
                             <span>{{item.title}}</span>
-                            <a href="single.html">
+                            <a @click="handleClick(item.id)">
                                 <i class="fa fa-play-circle-o fa-5x" style="color: #fff"></i>
                             </a>
                             <p>{{item.title}}</p>
@@ -141,7 +144,8 @@
             <div class="row">
                 <div id="main-content" class="col-md-8">
                     <div class="wrap-vid">
-                        <iframe width="100%" height="400" src="https://www.youtube.com/embed/ImMw_5byGmA" frameborder="0" allowfullscreen></iframe>
+                        <!-- <iframe width="100%" height="400" src="https://www.youtube.com/embed/ImMw_5byGmA" frameborder="0" allowfullscreen></iframe> -->
+                        <div class="prism-player" id="player-con"></div>
                     </div>
                     <div class="share">
                         <ul class="list-inline center">
@@ -550,6 +554,32 @@
     <script type="text/javascript" src="js/vue/menu.js"></script>
     <!-- header-slide -->
     <script type="text/javascript" src="js/vue/header-slide.js"></script>
+    <script>
+    window.onload = function() {
+        var id = getParam('id');
+        if (id == null) {
+            video("//player.alicdn.com/video/aliyunmedia.mp4");
+            return false;
+        }
+        axios.post('http://182.61.41.38:8000/api/video/click', getData({
+                id: id,
+                appKey: kAppKey,
+                sign: getSign({ id: id }, kAppKey, kAppSecret),
+            }), {
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                }
+            })
+            .then(function(response) {
+                console.log(response.data.result.url);
+                video(response.data.result.url);
+            })
+            .catch(function(error) {
+                console.log(error);
+            })
+    }
+    //video(source);
+    </script>
 </body>
 
 </html>

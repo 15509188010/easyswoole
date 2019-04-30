@@ -2,52 +2,18 @@
 
 namespace App\HttpController\Api;
 
-use App\HttpController\Base;
+use App\HttpController\Api\Base;
+use EasySwoole\Http\Message\Status;
 
 /**
  *
  */
 class Video extends Base
 {
-    function list() {
-        $data = [
-            ['title' => '三生三世'],
-            ['title' => '致青春'],
-            ['title' => '倚天屠龙记'],
-            ['title' => '笑傲江湖'],
-        ];
-        return $this->writeJson(200, 'success', $data);
-    }
-
-    public function category()
+    public function click()
     {
-        $data = [
-            'one'   => [
-                ['title' => '三生三世'],
-                ['title' => '致青春'],
-                ['title' => '倚天屠龙记'],
-                ['title' => '笑傲江湖'],
-            ],
-            'two'   => [
-                ['title' => '三生三世t'],
-                ['title' => '致青春t'],
-                ['title' => '倚天屠龙记t'],
-                ['title' => '笑傲江湖t'],
-            ],
-            'three' => [
-                ['title' => '三生三世t'],
-                ['title' => '致青春t'],
-                ['title' => '倚天屠龙记t'],
-                ['title' => '笑傲江湖t'],
-            ],
-            'four'  => [
-                ['title' => '三生三世f'],
-                ['title' => '致青春f'],
-                ['title' => '倚天屠龙记f'],
-                ['title' => '笑傲江湖f'],
-            ],
-        ];
+        $data = ['title' => 'video', 'url' => 'https://outin-1ed325a0682a11e9895600163e06123c.oss-cn-shanghai.aliyuncs.com/sv/2bf15241-16a5da704d3/2bf15241-16a5da704d3.mp4?Expires=1556603833&OSSAccessKeyId=LTAItL9Co9nUDU5r&Signature=U%2FyxuF%2F5mwP5tMiTdDrbxSLRUvw%3D'];
 
-        return $this->writeJson(200, 'success', $data);
+        return $this->writeJson(Status::CODE_OK, $data, 'success');
     }
 }

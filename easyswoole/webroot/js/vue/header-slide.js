@@ -28,11 +28,13 @@ var slide = new Vue({
                 })
                 .then(function(response) {
                     slide.list = response.data.result;
-                    console.log(this.list);
                 })
                 .catch(function(error) {
                     console.log(error);
                 })
+        },
+        handleClick: function(id) {
+            location.href = "single.html?id=" + id;
         },
     },
 });
