@@ -29,7 +29,6 @@ CREATE TABLE `v_video`(
 	`id` int(10) unsigned NOT NULL auto_increment,
 	`title` VARCHAR(20) NOT NULL DEFAULT '' COMMENT '视频名称',
 	`aid` VARCHAR(100) NOT NULL DEFAULT '' COMMENT '阿里云视屏id',
-	`url` VARCHAR(255) NOT NULL DEFAULT '' COMMENT '阿里云视屏地址',
 	`cid` int(10) unsigned NOT NULL DEFAULT 0 COMMENT '分类id',
 	`img` VARCHAR(20) NOT NULL DEFAULT '' COMMENT '视频封面图',
 	`click` int(10) NOT  NULL DEFAULT 1 COMMENT '视频点击数',

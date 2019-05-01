@@ -8,14 +8,14 @@
 
 namespace EasySwoole\EasySwoole;
 
-use App\Lib\Process\ConsumerTest;
+use App\HttpController\Task\TaskHot;
 use App\Lib\Redis\Redis;
 use App\Pool\MysqlPool;
 use EasySwoole\Component\Di;
 use EasySwoole\Component\Pool\PoolManager;
 use EasySwoole\EasySwoole\AbstractInterface\Event;
 use EasySwoole\EasySwoole\Config;
-use EasySwoole\EasySwoole\ServerManager;
+use EasySwoole\EasySwoole\Crontab\Crontab;
 use EasySwoole\EasySwoole\Swoole\EventRegister;
 use EasySwoole\Http\Request;
 use EasySwoole\Http\Response;
@@ -62,11 +62,14 @@ class EasySwooleEvent implements Event
         /******************************注入redis*******************************/
         Di::getInstance()->set('REDIS', Redis::getInstance());
 
-        /******************************注册3个进程*******************************/
-        $allNum = 3;
-        for ($i = 0; $i < $allNum; $i++) {
-            ServerManager::getInstance()->getSwooleServer()->addProcess((new ConsumerTest("consumer_{$i}"))->getProcess());
-        }
+        /******************************注册3个进程(消费者模式)*******************************/
+        // $allNum = 3;
+        // for ($i = 0; $i < $allNum; $i++) {
+        //     ServerManager::getInstance()->getSwooleServer()->addProcess((new ConsumerTest("consumer_{$i}"))->getProcess());
+        // }
+
+        /****************** Crontab任务计划 ***********************/
+        Crontab::getInstance()->addTask(TaskHot::class);
 
     }
 
