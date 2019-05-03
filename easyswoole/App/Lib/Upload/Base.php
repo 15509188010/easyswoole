@@ -1,6 +1,7 @@
 <?php
 namespace App\Lib\Upload;
 
+use App\Lib\AliyunSdk\AliVod;
 use App\Lib\Utils;
 
 /**
@@ -40,14 +41,19 @@ class Base
         if ($this->type != $this->fileType) {
             return false;
         }
-        $videos     = $this->request->getUploadedFile($this->type);
+        $videos     = $this->request->getUploadedFile('file');
         $this->size = $videos->getSize();
         $this->checkSize();
         $fileName              = $videos->getClientFileName();
         $this->clientMediaType = $videos->getClientMediaType();
         $this->checkClientMediaType();
         $file = $this->getFile($fileName);
-        $flag = $videos->moveTo($file);
+        if ($this->type == 'video') {
+            $flag = $this->videoUpload($videos);
+            return $flag;
+        } else {
+            $flag = $videos->moveTo($file);
+        }
         if (!empty($flag)) {
             return $this->file;
         }
@@ -63,8 +69,9 @@ class Base
     {
         $pathinfo  = pathinfo($fileName);
         $extension = $pathinfo['extension'];
-        $dirname   = "/" . $this->type . "/" . date("Y") . "/" . date("m");
-        $dir       = EASYSWOOLE_ROOT . "/webroot" . $dirname;
+
+        $dirname = "/" . $this->type . "/" . date("Y") . "/" . date("m");
+        $dir     = EASYSWOOLE_ROOT . "/webroot" . $dirname;
         if (!is_dir($dir)) {
             mkdir($dir, 0777, true);
         }
@@ -100,6 +107,34 @@ class Base
     {
         if (empty($this->size)) {
             return false;
+        }
+    }
+
+    public function videoUpload($videos)
+    {
+        try {
+            $files     = $this->request->getSwooleRequest()->files;
+            $types     = $files['file'];
+            $videoFile = $types['tmp_name'];
+            if (empty($videoFile)) {
+                throw new \Exception('上传' . $this->type . '文件失败');
+            }
+            $obj           = new AliVod();
+            $title         = $videos->getClientFileName();
+            $videoFileName = $videos->getClientFileName();
+            $res           = $obj->createUploadVideo($title, $videoFileName, $other = []);
+            if (empty($res)) {
+                throw new \Exception('获取' . $this->type . '凭证失败');
+            }
+            $videoId       = $res->VideoId;
+            $uploadAddress = json_decode(base64_decode($res->UploadAddress), true);
+            $uploadAuth    = json_decode(base64_decode($res->UploadAuth), true);
+            $obj->initOssClient($uploadAuth, $uploadAddress);
+            $videoFile = "/www/wwwroot/easyswoole/webroot/videos/ming.mp4"; #本地的视频文件
+            $result    = $obj->uploadLocalFile($uploadAddress, $videoFile);
+            return $videoId;
+        } catch (\Exception $e) {
+            throw new \Exception('上传' . $this->type . '文件出错');
         }
     }
 }

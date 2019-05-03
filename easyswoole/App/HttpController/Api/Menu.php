@@ -33,4 +33,11 @@ class Menu extends Base
         }
         return $this->writeJson(Status::CODE_OK, $data, 'success');
     }
+
+    public function allCategory()
+    {
+        $model = new Category();
+        $data  = $model->getAllCategory('cid,title');
+        return $this->writeJson(Status::CODE_OK, $data, 'success');
+    }
 }

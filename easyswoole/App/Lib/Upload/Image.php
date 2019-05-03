@@ -30,5 +30,6 @@ class Image extends Base
         'jpeg',
         'jpg',
         'gif',
+        'file',
     ];
 }
