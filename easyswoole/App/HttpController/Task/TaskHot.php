@@ -18,7 +18,7 @@ class TaskHot extends AbstractCronTask
     {
         // TODO: Implement getRule() method.
         // 定时周期 （每2分钟）
-        return '*/20 * * * *';
+        return '*/5 * * * *';
     }
 
     public static function getTaskName(): string

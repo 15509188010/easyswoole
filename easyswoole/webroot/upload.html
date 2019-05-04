@@ -12,6 +12,7 @@
     <script type="text/javascript" src="js/vue/main.js"></script>
     <script src="js/md5.min.js"></script>
     <script type="text/javascript" src="js/sign.js"></script>
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -21,7 +22,7 @@
     <fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
         <legend>UPLOAD</legend>
     </fieldset>
-    <form class="layui-form" action="">
+    <form class="layui-form" action="" id="form" autocomplete="off">
         <div class="layui-form-item">
             <label class="layui-form-label">视频标题</label>
             <div class="layui-input-block">
@@ -52,7 +53,7 @@
             <label class="layui-form-label">封面图预览</label>
             <div class="layui-upload">
                 <div class="layui-upload-list">
-                    <input type="hidden" name="url" id="url">
+                    <input type="hidden" name="url" id="url" lay-verify="required">
                     <img class="layui-upload-img" id="demo1" width="100px">
                     <p id="demoText"></p>
                 </div>
@@ -99,7 +100,7 @@
         </div>
         <div class="layui-form-item">
             <div class="layui-input-block">
-                <button class="layui-btn" lay-submit="" lay-filter="demo1">立即提交</button>
+                <button class="layui-btn" lay-submit="" lay-filter="sub1">立即提交</button>
                 <button type="reset" class="layui-btn layui-btn-primary">重置</button>
             </div>
         </div>
@@ -142,8 +143,6 @@
             layedit = layui.layedit,
             laydate = layui.laydate;
 
-
-
         //创建一个编辑器
         var editIndex = layedit.build('LAY_demo_editor');
 
@@ -154,9 +153,6 @@
                     return '标题至少得5个字符啊';
                 }
             },
-            pass: [
-                /^[\S]{6,12}$/, '密码必须6到12位，且不能出现空格'
-            ],
             content: function(value) {
                 layedit.sync(editIndex);
             }
@@ -171,10 +167,27 @@
         });
 
         //监听提交
-        form.on('submit(demo1)', function(data) {
-            layer.alert(JSON.stringify(data.field), {
-                title: '最终的提交信息'
-            })
+        form.on('submit(sub1)', function(data) {
+            $.ajax({
+                url: "http://182.61.41.38:8000/api/upload/write",
+                type: "post",
+                data: $('#form').serialize(),
+                success: function(res) {
+                    if (res.code == 200) {
+                        layer.msg('提交成功', {
+                            offset: '6px'
+                        });
+                        setTimeout("location.reload()", 1000); //1秒后重置此页面
+                    } else {
+                        layer.msg('提交失败', {
+                            offset: '6px'
+                        });
+                    }
+                },
+                error: function(XMLHttpRequest, textStatus, errorThrown) {
+                    layer.alert('网络失败，请刷新页面后重试', { icon: 7 });
+                }
+            });
             return false;
         });
     });
