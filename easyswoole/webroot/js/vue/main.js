@@ -19,6 +19,7 @@ function video(source) {
         "width": "100%",
         "height": "400px",
         "autoplay": true,
+        "cover": "http://www.pptok.com/wp-content/uploads/2012/08/xunguang-4.jpg",
         "isLive": false,
         "rePlay": false,
         "playsinline": true,
