@@ -15,9 +15,9 @@ class Video extends Model
      * @param  [type]  $field [description]
      * @return [type]         [description]
      */
-    public function getHot($num = 10, $field = null)
+    public function getHot($num = 10, $field = null, $orderby = 'zan DESC')
     {
-        $model = $this->order('zan DESC')->where('status', 0);
+        $model = $this->order($orderby)->where('status', 0);
         if (!empty($num)) {
             $model = $model->limit($num);
         }

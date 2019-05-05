@@ -9,10 +9,12 @@
 namespace EasySwoole\EasySwoole;
 
 use App\HttpController\Task\TaskHot;
+use App\Lib\Cache\Video as videoCache;
 use App\Lib\Redis\Redis;
 use App\Pool\MysqlPool;
 use EasySwoole\Component\Di;
 use EasySwoole\Component\Pool\PoolManager;
+use EasySwoole\Component\Timer;
 use EasySwoole\EasySwoole\AbstractInterface\Event;
 use EasySwoole\EasySwoole\Config;
 use EasySwoole\EasySwoole\Crontab\Crontab;
@@ -40,7 +42,7 @@ class EasySwooleEvent implements Event
             //注册失败不一定要抛出异常,因为内部实现了自动注册,不需要注册也能使用
             throw new \Exception('注册失败!');
         }
-        self::loadConf(EASYSWOOLE_ROOT . '/Config'); #加载配置文件
+        //self::loadConf(EASYSWOOLE_ROOT . '/Config'); #加载配置文件,已使用yaconf替换了此种方式
     }
 
     /**
@@ -70,6 +72,17 @@ class EasySwooleEvent implements Event
 
         /****************** Crontab任务计划 ***********************/
         Crontab::getInstance()->addTask(TaskHot::class);
+
+        $cacheVideoObj = new videoCache();
+        $register->add(EventRegister::onWorkerStart, function (\swoole_server $server, $workerId) use ($cacheVideoObj) {
+            if ($workerId == 0) {
+                // Timer::loop
+                Timer::getInstance()->loop(1000 * 30, function () use ($cacheVideoObj) {
+                    $cacheVideoObj->setNewVideo(); #30秒执行一次
+                });
+                // todo
+            }
+        });
 
     }
 
